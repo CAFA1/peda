@@ -3105,6 +3105,20 @@ class PEDACmd(object):
         """
         aa=gdb.execute('p $eax')
         msg('hello '+aa)
+    def step_to_addr(self,*arg):
+        '''
+        step_to_addr addr
+        Usage:
+            step_to_addr addr
+        '''
+        (addr,) = normalize_argv(arg, 1)
+        myeip = peda.getreg('eip')
+        while(myeip!=addr):
+            peda.execute('si')
+            myeip = peda.getreg('eip')
+        #msg(hex(myeip))
+
+
     def _get_helptext(self, *arg):
         """
         Get the help text, for internal use by help command and other aliases
