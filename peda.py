@@ -3105,6 +3105,16 @@ class PEDACmd(object):
         """
         aa=gdb.execute('p $eax')
         msg('hello '+aa)
+    def test_si(self,*arg):
+        '''
+        test
+        '''
+        log=peda.execute_redirect('stepi')
+        log=peda.execute_redirect('info registers')
+        msg(log)
+        log=peda.execute_redirect('disassemble $eip, +10')
+        msg(log)
+        msg(type(log))
     def step_to_addr(self,*arg):
         '''
         step_to_addr addr
@@ -3113,10 +3123,18 @@ class PEDACmd(object):
         '''
         (addr,) = normalize_argv(arg, 1)
         myeip = peda.getreg('eip')
+        myfile = open('log_si.txt','w')
         while(myeip!=addr):
-            peda.execute('si')
+            peda.execute_redirect('si')
+            log=peda.execute_redirect('disassemble $eip, +10')
+            myfile.write(log)
+            log=peda.execute_redirect('info registers')
+            myfile.write(log)
+            log=peda.execute_redirect('bt')
+            myfile.write(log)
             myeip = peda.getreg('eip')
-        #msg(hex(myeip))
+        myfile.close()
+        #msg(hex(myeip))s
 
 
     def _get_helptext(self, *arg):
