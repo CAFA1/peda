@@ -3097,7 +3097,8 @@ class PEDACmd(object):
         else:
             msg("Failed to reload %s source from: %s" % (modname, peda_path))
         return
-
+    def hello(self,*arg):
+        msg('hello')
     def _get_helptext(self, *arg):
         """
         Get the help text, for internal use by help command and other aliases
