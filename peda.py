@@ -3098,7 +3098,13 @@ class PEDACmd(object):
             msg("Failed to reload %s source from: %s" % (modname, peda_path))
         return
     def hello(self,*arg):
-        msg('hello')
+        """
+        hello world
+        Usage:
+            first command
+        """
+        aa=gdb.execute('p $eax')
+        msg('hello '+aa)
     def _get_helptext(self, *arg):
         """
         Get the help text, for internal use by help command and other aliases
