@@ -3128,7 +3128,7 @@ class PEDACmd(object):
             peda.execute_redirect('si')
             log=peda.execute_redirect('disassemble $eip, +10')
             myfile.write(log)
-            log=peda.execute_redirect('telescope $esp, 3')
+            log=peda.execute_redirect('telescope $esp 3')
             myfile.write(log)
             log=peda.execute_redirect('info registers')
             myfile.write(log)
