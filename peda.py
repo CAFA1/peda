@@ -3110,7 +3110,8 @@ class PEDACmd(object):
         test
         '''
         log=peda.execute_redirect('stepi')
-        log=peda.execute_redirect('info registers')
+        log=peda.execute_redirect('telescope $esp 3')
+        msg(len(log))
         msg(log)
         log=peda.execute_redirect('disassemble $eip, +10')
         msg(log)
@@ -3128,8 +3129,8 @@ class PEDACmd(object):
             peda.execute_redirect('si')
             log=peda.execute_redirect('disassemble $eip, +10')
             myfile.write(log)
-            log=peda.execute_redirect('telescope $esp 3')
-            myfile.write(log)
+            #log=peda.execute_redirect('telescope $esp 3')
+            #myfile.write(log)
             log=peda.execute_redirect('info registers')
             myfile.write(log)
             log=peda.execute_redirect('bt')
