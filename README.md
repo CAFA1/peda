@@ -1,13 +1,17 @@
 peda
 ====
-1.  
-step_to_addr addr  
-step_to_addr 'log_si.txt'  
+# 1.change steps: 
+  ## 1.1 add function
+  ## 1.2 reload command
+# 2.my commands
+  ## 2.1 step_to_addr addr    
+    log into 'log_si.txt' file
+  ## 
 
 
 ====  
 
- 
+
 PEDA - Python Exploit Development Assistance for GDB
 
 ## Key Features:
