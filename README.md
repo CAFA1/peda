@@ -12,8 +12,9 @@ log into 'log_si.txt' file
 log filename into 'open_file.txt' file    
 
 
-====  
+ 
 PEDA - Python Exploit Development Assistance for GDB
+==== 
 
 ## Key Features:
 * Enhance the display of gdb: colorize and display disassembly codes, registers, memory information during debugging.
