@@ -13,8 +13,6 @@ log filename into 'open_file.txt' file
 
 
 ====  
-
-
 PEDA - Python Exploit Development Assistance for GDB
 
 ## Key Features:
