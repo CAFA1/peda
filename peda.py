@@ -3140,19 +3140,23 @@ class PEDACmd(object):
         #msg(hex(myeip))s
     def catch_open_file(self,*arg):
         '''
-        until_catch_open_file file_name
+        catch_open_file file_name
         Usage:
-            until_catch_open_file file_name
+            catch_open_file file_name
         '''
-        (file_name,) = normalize_argv(arg, 1)
+        (file_name,) = normalize_argv(arg, 1)        
+        myfile = open('open_file.txt','w')
         myebx = peda.getreg('ebx')
-        #myfile = open('log_si.txt','w')
         result = peda.examine_mem_reference(myebx)[0][2]
-        msg(result)
-        
-        while(file_name!=result):
+        while(result.find(file_name)==-1):
             peda.execute_redirect('c')
-            time.sleep(2)
+            time.sleep(1)
+            myebx = peda.getreg('ebx')
+            result = peda.examine_mem_reference(myebx)[0][2]
+            myfile.write(result+'\n')
+        return 1
+            
+            
             
         
 

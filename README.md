@@ -1,12 +1,13 @@
 peda
 ====
 # 1.change steps: 
-  ## 1.1 add function
-  ## 1.2 reload command
+  1.1 add function
+  1.2 reload command
 # 2.my commands
-  ## 2.1 step_to_addr addr    
+  2.1 step_to_addr addr    
     log into 'log_si.txt' file
-  ## 
+  2.2 catch_open_file file_name
+    log filename into 'open_file.txt' file  
 
 
 ====  
